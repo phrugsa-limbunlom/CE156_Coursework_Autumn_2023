@@ -22,7 +22,7 @@ def fun2(word):
     return word_maximum_frequency
 
 
-def count_letter_space_digit(word):
+def fun3(word):
     word_count_dict = {"letter": 0, "space": 0, "digit": 0}
     for w in word:
         if w.isalpha():
@@ -49,4 +49,4 @@ if __name__ == "__main__":
     print(fun2("hjklTttTT233333@@@@@กกกกก"))
     print(fun2("@@@@@******"))
 
-    print(count_letter_space_digit("gg  1234556   $$$"))
+    print(fun3("gg  1234556   $$$"))
