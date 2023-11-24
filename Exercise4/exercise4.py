@@ -1,4 +1,5 @@
 import sys
+import pandas as pd
 
 
 def filter_students_by_department(students, department):
@@ -13,15 +14,26 @@ def filter_students_by_department(students, department):
             if filtered_students[i][1] >= filtered_students[j][1]:
                 filtered_students[i], filtered_students[j] = filtered_students[j], filtered_students[i]
 
-    #no department match
+    # no department match
     if len(filtered_students) == 0:
         return
 
-    # format output in table
-    format_filtered_students = ""
+    names = []
+    registration_numbers = []
+    departments = []
+
+    student_dict = dict()
+
     for student in filtered_students:
-        student_attribute = str(student).replace("(", "").replace(")", "").split(",")
-        format_filtered_students += student_attribute[0] + "|" + student_attribute[1] + "|" + student_attribute[2] + "\n"
+        names.append(student[0])
+        registration_numbers.append(student[1])
+        departments.append(student[2])
+
+    student_dict["Name"] = names
+    student_dict["Registration Number"] = registration_numbers
+    student_dict["Department"] = departments
+
+    format_filtered_students = pd.DataFrame(student_dict)
 
     return format_filtered_students
 
