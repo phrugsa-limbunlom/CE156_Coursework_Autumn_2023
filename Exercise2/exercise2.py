@@ -23,7 +23,7 @@ def find_prime_number(num1, num2):
     return prime_number
 
 
-# output all 10 prime numbers per line
+# output 10 prime numbers per line
 def format_output(non_prime_list):
     output = ""
     count = 1
