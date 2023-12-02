@@ -28,10 +28,10 @@ def format_output(non_prime_list):
     output = ""
     count = 1
     for i in non_prime_list:
+        output += str(i) + " "
         if count == 10:
             output += "\n"
             count = 0
-        output += str(i) + " "
         count += 1
     return output
 
