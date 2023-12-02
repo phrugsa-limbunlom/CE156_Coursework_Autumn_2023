@@ -1,3 +1,4 @@
+import pandas as pd
 # validate whether that number (in the range) is prime or not
 def is_prime_number(number):
     list_of_number = [2, 3, 5, 7]
@@ -25,15 +26,7 @@ def find_prime_number(num1, num2):
 
 # output 10 prime numbers per line
 def format_output(prime_list):
-    output = ""
-    count = 1
-    for i in prime_list:
-        output += str(i) + " "
-        if count == 10:
-            output += "\n"
-            count = 0
-        count += 1
-    return output
+    return pd.DataFrame([prime_list[i:i+10] for i in range(0, len(prime_list), 10)]).astype('Int64').to_string(index=False, header=False)
 
 
 def validate_numeric_number(num1, num2):
