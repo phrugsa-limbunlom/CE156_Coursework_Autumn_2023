@@ -1,3 +1,5 @@
+import pandas as pd
+
 # validate whether that number (in the range) is prime or not
 def is_prime_number(number):
     list_of_number = [2, 3, 5, 7]
