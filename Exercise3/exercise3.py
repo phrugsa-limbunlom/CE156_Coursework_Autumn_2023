@@ -1,8 +1,21 @@
+# the function receive a word (string) as an input argument
+# convert the input word to be all lowercase to avoid sensitive case
+# then using a slide window to verify whether the original word from front to back
+# and the reverse from back to front is all the same for every character or not
+# then return the verification as a boolean (True of False) to whether if the given word is palindrome
 def fun1(word):
     word = word.lower()
     return word[0:] == word[::-1]
 
 
+# the function receive a word (string) as an input argument
+# convert the input word to be all lowercase to avoid sensitive case
+# for loop all characters in the word and verify if each character is digit or letter
+# then retain that character with its frequency occurrence in the dictionary if it is digit or letter
+# also checking whether there are no letters or digits by counting a number of character if it is not digit or letter
+# if count number is 0, then the function returns None
+# if not, for loop all words (key) in the dictionary to find the maximum occurrences (value) of that/those character/characters
+# the return the frequency for all characters having the most occurrence
 def fun2(word):
     word = word.lower()
     word_frequency = dict()
@@ -17,11 +30,20 @@ def fun2(word):
     if count == 0:
         return None
 
-    word_maximum_frequency = [word[0] for word in word_frequency.items() if word[1] == max(word_frequency.values())]
+    character_maximum_frequency = [word[0] for word in word_frequency.items() if
+                                   word[1] == max(word_frequency.values())]
 
-    return word_maximum_frequency
+    return character_maximum_frequency
 
 
+# the function receive a word (string) as an input argument
+# inside the function, initialize a dictionary with three groups (letter, space, digit) as three keys with 0 value
+# for loop all characters in the word and check if it is a letter, a space, or a digit
+# if it is a letter, assign it as a letter group in a dictionary by count a number of frequency (value) of letter (key)
+# if it is a space, assign it as a space group in a dictionary by count a number of frequency (value) of space (key)
+# if it is a digit, assign it as a digit group in a dictionary by count a number of frequency (value) of digit (key)
+# if it is not in any above group, it will not be assigned to any group
+# then convert the dictionary to a tuple and return the tuple as an output
 def fun3(word):
     word_count_dict = {"letter": 0, "space": 0, "digit": 0}
     for w in word:
@@ -36,17 +58,3 @@ def fun3(word):
 
     word_count_tuple = [(k, v) for k, v in word_count_dict.items()]
     return word_count_tuple
-
-
-##need to be removed before submit
-if __name__ == "__main__":
-    print(fun1("radar"))
-    print(fun1("a"))
-    print(fun1("abc"))
-    print(fun1("Dad"))
-    print(fun1("red ER"))
-
-    print(fun2("hjklTttTT233333@@@@@กกกกก"))
-    print(fun2("@@@@@******"))
-
-    print(fun3("gg  1234556   $$$"))
