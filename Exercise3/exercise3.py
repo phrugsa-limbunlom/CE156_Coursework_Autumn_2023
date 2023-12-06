@@ -15,7 +15,7 @@ def fun1(word):
 # also checking whether there are no letters or digits by counting a number of character if it is not digit or letter
 # if count number is 0, then the function returns None
 # if not, for loop all words (key) in the dictionary to find the maximum occurrences (value) of that/those character/characters
-# the return the frequency for all characters having the most occurrence
+# then return the frequency for a character having the most occurrence
 def fun2(word):
     word = word.lower()
     word_frequency = dict()
@@ -30,10 +30,9 @@ def fun2(word):
     if count == 0:
         return None
 
-    character_maximum_frequency = [word[0] for word in word_frequency.items() if
-                                   word[1] == max(word_frequency.values())]
+    character_maximum_frequency = [word[0] for word in word_frequency.items() if word[1] == max(word_frequency.values())]
 
-    return character_maximum_frequency
+    return character_maximum_frequency[len(character_maximum_frequency)-1]
 
 
 # the function receive a word (string) as an input argument
