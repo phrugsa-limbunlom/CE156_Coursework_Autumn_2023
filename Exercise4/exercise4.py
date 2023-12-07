@@ -6,7 +6,7 @@ import pandas as pd
 # a list of tuples contain the name, department, registration number for each student
 # a string is the department name
 # the function will filter all students whose the department in a tuple matched to the department argument
-# after filtering, the list of filtered students will be sorted by the registration number in the tuple
+# after filtering, the list of filtered students will be sorted by the registration number (ascending) in the tuple
 # then convert the list of filtered students to the dictionary
 # and then using that dictionary to create a formatted table by using pandas before return it as an output
 # if no department in a tuple list matched to the department argument, return None
@@ -19,7 +19,7 @@ def filter_students_by_department(students, department):
     # sort students by registration numbers
     for i in range(len(filtered_students)):
         for j in range(i):
-            if filtered_students[i][1] >= filtered_students[j][1]:
+            if filtered_students[i][1] <= filtered_students[j][1]:
                 filtered_students[i], filtered_students[j] = filtered_students[j], filtered_students[i]
 
     # no department match

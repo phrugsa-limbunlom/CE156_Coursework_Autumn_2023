@@ -97,7 +97,7 @@ def write_output_file(students, output_file):
 # the function receives the students numpy array as an argument
 # then for loop all students and count a number of student who have first class grade, second class grade, third class grade, and failed
 # and also retain student registration number who failed
-# the return...
+# then return...
 # a number of first class grade student,
 # a number of second class grade student,
 # a number of third class grade student,
